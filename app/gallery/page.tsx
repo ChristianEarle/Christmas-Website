@@ -6,7 +6,7 @@ export default function GalleryPage() {
     <section className="page-section active">
       <h2 className="section-heading">📸 Our Little Photo Reel</h2>
       <p className="section-sub">
-        A tiny slideshow of some of my favorite moments with you.
+        A slideshow of some of our Christmas moments.
       </p>
       <PhotoCarousel />
     </section>

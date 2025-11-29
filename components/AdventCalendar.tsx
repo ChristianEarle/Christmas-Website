@@ -4,34 +4,45 @@
 import { useMemo, useState } from "react";
 
 const adventMessages: string[] = [
-  "Day 1: The story of how I knew you were special.",
-  "Day 2: One tiny thing about you I adore.",
-  "Day 3: A favorite memory that still makes me smile.",
-  "Day 4: A song that will always remind me of you.",
-  "Day 5: A promise: I will always listen to you.",
-  "Day 6: A moment where you made my whole week better.",
-  "Day 7: Something about your laugh I love way too much.",
-  "Day 8: A place I can’t wait to go with you.",
-  "Day 9: A random detail I remember because I pay attention.",
-  "Day 10: A reason I’m proud of you.",
-  "Day 11: One way you’ve changed my life for the better.",
-  "Day 12: A cozy future evening I imagine with you.",
-  "Day 13: A little habit of yours I secretly find adorable.",
-  "Day 14: A reminder: you’re doing better than you think.",
-  "Day 15: My favorite photo of you (go pick one).",
-  "Day 16: A goal I want us to chase together.",
-  "Day 17: A time you made me feel really loved.",
-  "Day 18: Something I’ll never get tired of hearing you say.",
-  "Day 19: A silly memory that will never not be funny.",
-  "Day 20: A promise to always hype you up.",
-  "Day 21: A small way I’m going to show up for you.",
-  "Day 22: A dream trip I want us to take one day.",
-  "Day 23: One more reason I’m grateful for you this year.",
-  "Day 24: The truth: you are my favorite gift, always.",
+  "Day 1: $20 gift card to Anthropologie",
+  "Day 2: Reedemable lifetime pilates",
+  "Day 3: Chick-Fil-A breakfast",
+  "Day 4: Bath bombs",
+  "Day 5: Cozy socks",
+  "Day 6: Prince toys",
+  "Day 7: Reedemable Massage",
+  "Day 8: Dinner of choice",
+  "Day 9: $20 Ulta gift card",
+  "Day 10: Reedemable apartment cleaning",
+  "Day 11: Sweet treats",
+  "Day 12: $25 Shein gift card",
+  "Day 13: Lunch of choice",
+  "Day 14: Chocolates",
+  "Day 15: Sink caddy",
+  "Day 16: $20 Chick-fila gift card",
+  "Day 17: Energy drinks",
+  "Day 18: $20 Uber Eats gift card",
+  "Day 19: Reedemable coffee",
+  "Day 20: Movie night",
+  "Day 21: $20 Ulta gift card",
+  "Day 22: Classic snacks",
+  "Day 23: Christmas trinket",
+  "Day 24: A book",
 ];
 
-export default function AdventCalendar() {
-  const today = useMemo(() => new Date(), []);
+type AdventCalendarProps = {
+  /**
+   * Optional override for testing:
+   * - If provided, the calendar will pretend "today" is this date.
+   * - If omitted, it uses the real current date.
+   */
+  testDate?: Date;
+};
+
+export default function AdventCalendar({ testDate }: AdventCalendarProps) {
+  // Use testDate if passed in, otherwise the real current date
+  const today = useMemo(() => testDate ?? new Date(), [testDate]);
+
   const [modalTitle, setModalTitle] = useState<string | null>(null);
   const [modalBody, setModalBody] = useState<string | null>(null);
 
@@ -40,6 +51,7 @@ export default function AdventCalendar() {
   const isDecember = currentMonth === 11;
 
   function isAvailable(day: number) {
+    // Only available on or after that day in December
     return isDecember && currentDay >= day;
   }
 
@@ -65,10 +77,7 @@ export default function AdventCalendar() {
               className={`advent-door${available ? "" : " locked"}`}
               onClick={() => {
                 if (!available) {
-                  openModal(
-                    "Too soon! 🎅",
-                    "This one is for another day. No peeking! (Or you can change the code if you really can't wait.)"
-                  );
+                  openModal("Too soon! 🎅", "This one is for another day.");
                   return;
                 }
                 const message = adventMessages[day - 1] ?? "";
@@ -83,7 +92,10 @@ export default function AdventCalendar() {
       </div>
 
       {modalTitle && (
-        <div className="modal-backdrop" onClick={(e) => e.target === e.currentTarget && closeModal()}>
+        <div
+          className="modal-backdrop"
+          onClick={(e) => e.target === e.currentTarget && closeModal()}
+        >
           <div className="modal">
             <h3>{modalTitle}</h3>
             <p>{modalBody}</p>

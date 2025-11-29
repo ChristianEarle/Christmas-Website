@@ -8,7 +8,6 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/advent", label: "Advent Calendar" },
   { href: "/countdown", label: "Countdown" },
-  { href: "/tree", label: "Decorate the Tree" },
   { href: "/gallery", label: "Photo Memories" },
 ];
 

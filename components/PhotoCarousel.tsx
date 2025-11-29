@@ -6,21 +6,17 @@ import "../styles/carousel.css";
 
 type Slide = {
   src: string;
-  caption: string;
 };
 
 const slides: Slide[] = [
   {
-    src: "/images/gallery/photo1.jpg",
-    caption: "Our first photo together — the beginning of everything.",
+    src: "/images/gallery/IMG_3220.jpg",
   },
   {
-    src: "/images/gallery/photo2.jpg",
-    caption: "That day we laughed way too hard over nothing.",
+    src: "/images/gallery/IMG_3452.jpeg",
   },
   {
-    src: "/images/gallery/photo3.jpg",
-    caption: "One of those moments where I remember thinking: wow, I am so lucky.",
+    src: "/images/gallery/IMG_7277.JPG",
   },
 ];
 

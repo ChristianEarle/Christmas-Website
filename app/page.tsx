@@ -7,10 +7,7 @@ export default function HomePage() {
           Hi, Mary Ellen! Welcome to your Christmas page. ❄️
         </h1>
         <p className="hero-text">
-          Instead of just wrapping something in paper this year, I wanted to wrap
-          something in pixels. This little site is just for you — full of tiny
-          surprises, cheesy love notes, and a countdown to the day we get to
-          celebrate Christmas together.
+          This little site is just for you.
         </p>
         <div className="hero-actions">
           <a className="primary-btn" href="/advent">
@@ -28,17 +25,14 @@ export default function HomePage() {
           <ul>
             <li>Open a new little surprise every day on the Advent calendar.</li>
             <li>Watch the countdown tick down to Christmas with me.</li>
-            <li>Decorate our little Christmas tree together.</li>
-            <li>Flip through some of my favorite photos of us.</li>
+            <li>Flip through some of my favorite holiday photos of us.</li>
           </ul>
         </div>
         <div className="home-card">
           <h3>How to use it 🎄</h3>
           <ul>
             <li>Tap <strong>Advent Calendar</strong> to see all 24 days.</li>
-            <li>Tap <strong>Decorate the Tree</strong> and place ornaments.</li>
             <li>Tap <strong>Photo Memories</strong> to scroll through us.</li>
-            <li>Come back anytime when you need a reminder that you’re loved.</li>
           </ul>
         </div>
       </div>
